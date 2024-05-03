@@ -7,18 +7,19 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Cadastro de Produtos</h2>
+    <section id="section-cadastro">
+        <h1 id="h1_titulo">Cadastro de Produtos</h1>
         <form id="cadastro-form">
-            <input type="text" placeholder="Descrição" required>
-            <input type="file" accept="image/*" required>
-            <input type="number" placeholder="Preço de Venda" required>
-            <input type="number" placeholder="Preço de Custo" required>
-            <input type="text" placeholder="Fabricante" required>
-            <input type="text" placeholder="Categoria" required>
+            <input id="descricao" type="text" placeholder="Descrição" required>
+            <input id="imagem" type="file" accept="image/*" required>
+            <input id="preco-venda" type="number" placeholder="Preço de Venda" required>
+            <input id="preco-custo" type="number" placeholder="Preço de Custo" required>
+            <input id="fabricante" type="text" placeholder="Fabricante" required>
+            <input id="categoria" type="text" placeholder="Categoria" required>
             <button type="submit">Cadastrar</button>
+            <a href="../dashboard/dashboard.html" class="btn-voltar">Voltar à Dashboard</a>
         </form>
-    </div>
+    </section>
     <script src="script.js"></script>
 </body>
 </html>

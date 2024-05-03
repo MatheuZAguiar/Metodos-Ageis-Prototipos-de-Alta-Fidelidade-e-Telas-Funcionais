@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#section-dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    border: 0;
+    margin: 0;
+    animation: fundo 8s infinite;
+    font-family: 'Poppins' , sans-serif;
+}
+
+@keyframes fundo {
+    0% {background-color: #333333;}
+    50% {background-color: #555555;}
+    100% {background-color: #333333;}
+}
+
+@keyframes luzIntermitente {
+    0% {text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);}
+    50% {text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);}
+    100% {text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);}
+}
+
+#h1_titulo {
+    width: 50%;
+    text-align: center;
+    text-decoration: none;
+    color: aliceblue;
+    margin-bottom: 1.8em;
+    font-size: xx-large;
+    position: relative;
+    overflow: hidden;
+    animation: luzIntermitente 8s infinite;
+}
+
+#h1_titulo::before,
+#h1_titulo::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: aliceblue;
+    animation: pontosVolta 5s linear infinite;
+}
+
+#h1_titulo::before {
+    left: 0;
+    top: 0;
+    transform-origin: left center;
+}
+
+#h1_titulo::after {
+    right: 0;
+    bottom: 0;
+    transform-origin: right center;
+}
+
+@keyframes pontosVolta {
+    0%,100% {
+        width: 100%;
+        transform: scaleX(1) rotateX(0deg);
+    }
+    25% {
+        width: 0;
+        transform: scaleX(0) rotateX(90deg);
+    }
+    50% {
+        height: 0;
+        transform: scaleY(0) rotateY(90deg);
+    }
+    75% {
+        height: 2px;
+        transform: scaleY(1) rotateY(0deg);
+    }
+}
+
+#menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.el_lista {
+    margin-right: 10px; /* Espaçamento entre os itens */
+}
+
+.el_lista:last-child {
+    margin-right: 0; /* Remove o espaçamento do último item */
+}
+
+#menu li a {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #333333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#menu li a:hover {
+    background-color: #555555;
+}
