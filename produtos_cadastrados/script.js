@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Recupera os produtos do localStorage
     let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
     // Função para renderizar a lista de produtos
     function renderizarProdutos() {
@@ -32,13 +33,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 const categoriaProduto = document.createElement('p');
                 categoriaProduto.textContent = `Categoria: ${produto.categoria}`;
 
-                // Cria o botão de exclusão
-                const btnExcluir = document.createElement('button');
-                btnExcluir.textContent = 'Excluir';
-                btnExcluir.addEventListener('click', function() {
-                    produtos.splice(index, 1); // Remove o produto da lista
-                    localStorage.setItem('produtos', JSON.stringify(produtos)); // Atualiza o localStorage
-                    renderizarProdutos(); // Renderiza novamente a lista de produtos
+                // Cria o botão de adicionar ao carrinho
+                const btnAdicionarAoCarrinho = document.createElement('button');
+                btnAdicionarAoCarrinho.textContent = 'Adicionar ao Carrinho';
+                btnAdicionarAoCarrinho.addEventListener('click', function() {
+                    carrinho.push(produto); // Adiciona o produto ao carrinho
+                    localStorage.setItem('carrinho', JSON.stringify(carrinho)); // Atualiza o localStorage com o carrinho
+                    alert('Produto adicionado ao carrinho!');
                 });
 
                 // Adiciona os elementos ao item da lista
@@ -47,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 itemLista.appendChild(precoVendaProduto);
                 itemLista.appendChild(fabricanteProduto);
                 itemLista.appendChild(categoriaProduto);
-                itemLista.appendChild(btnExcluir);
+                itemLista.appendChild(btnAdicionarAoCarrinho);
 
                 // Adiciona o item à lista de produtos
                 listaProdutos.appendChild(itemLista);
