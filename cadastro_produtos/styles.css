@@ -2,6 +2,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    width: 100vw;
+    height: 100%;
 }
 
 #section-cadastro {
@@ -107,13 +109,20 @@ input[type="file"] {
 }
 
 button {
-    background-color: #4CAF50;
+    margin-top: 20px;
+    padding: 10px 20px;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    background-color: #555555;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #888888;
 }
 
 input[type="file"]::-webkit-file-upload-button {
@@ -130,15 +139,18 @@ input[type="file"]::-webkit-file-upload-button:hover {
 }
 
 .btn-voltar {
-    display: inline-block;
+    margin-top: 20px;
     padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    text-decoration: none;
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    background-color: #555555;
+    font-size: 16px;
     transition: background-color 0.3s ease;
 }
 
 .btn-voltar:hover {
-    background-color: #45a049;
+    background-color: #888888;
 }

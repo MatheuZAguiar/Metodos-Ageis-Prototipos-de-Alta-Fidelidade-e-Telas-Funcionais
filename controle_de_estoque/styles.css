@@ -1,19 +1,22 @@
-body {
+body, html {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    width: 100vw;
+    height: 100%;
 }
 
-#section-produtos_cadastrados {
+#section-controle_estoque {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 100%;
     height: 100%;
     border: 0;
     margin: 0;
     animation: fundo 8s infinite;
-    font-family: 'Poppins' , sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 @keyframes fundo {
@@ -81,58 +84,45 @@ body {
     }
 }
 
-#lista-produtos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
+table {
     width: 90%;
-    margin: 0 auto;
+    margin: 20px auto;
+    border-collapse: collapse;
 }
 
-#lista-produtos li {
-    width: calc(40% - 10px);
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    background-color: #f4f4f4;
-    border-radius: 12px;
+th, td {
     padding: 10px;
-    box-sizing: border-box;
-}
-
-#lista-produtos li:hover {
-    background-color: #e0e0e0;
-}
-
-#lista-produtos img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-#lista-produtos p {
     text-align: center;
-    padding: 10px 0;
+    border: 1px solid #ddd;
 }
 
-#lista-produtos button {
-    width: 100%;
-    height: 40px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    border: 0.1px solid #005c00;
-    cursor: pointer;
+th {
+    background-color: #f4f4f4;
 }
 
-#lista-produtos button:hover {
-    background-color: #005c00;
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
 }
 
 .btn-voltar {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    color: aliceblue;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     text-decoration: none;
+    color: #fff;
+    background-color: #555555;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-limpar:hover,
+.btn-finalizar:hover,
+.btn-voltar:hover {
+    background-color: #888888;
 }

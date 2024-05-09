@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     const listaCarrinho = document.getElementById('lista-carrinho');
     const totalCarrinho = document.getElementById('total');
+    const modal = document.getElementById('modal-finalizar-compra');
+    const btnFinalizarCompra = document.getElementById('finalizar-compra');
+    const dataVendaElement = document.getElementById('data-venda');
+    const vendedorInput = document.getElementById('vendedor');
+    const formaPagamentoInput = document.getElementById('forma-pagamento');
 
     // Recupera os itens do carrinho do localStorage
     let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
@@ -72,11 +77,61 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Finaliza a compra ao clicar no botão "Finalizar Compra"
-    document.getElementById('finalizar-compra').addEventListener('click', function() {
-        // Adicione aqui a lógica para finalizar a compra, como redirecionar para a página de checkout, enviar informações para o servidor, etc.
+    btnFinalizarCompra.addEventListener('click', function() {
+        // Exibir a modal ao clicar no botão "Finalizar Compra"
+        modal.style.display = 'block';
+
+        // Atualizar a data da venda na modal
+        const dataVenda = new Date();
+        dataVendaElement.textContent = dataVenda.toLocaleString();
+    });
+
+    // Fecha a modal ao clicar no botão de fechar
+    document.querySelector('.close').addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+
+    // Fecha a modal ao clicar fora dela
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    // Ao clicar em "Confirmar Compra"
+    document.getElementById('confirmar-finalizar-compra').addEventListener('click', function() {
+        const dataVenda = new Date(); // Data da venda
+        const vendedor = vendedorInput.value; // Vendedor(a)
+        const formaPagamento = formaPagamentoInput.value; // Forma de pagamento
+
+        // Criar um objeto para armazenar os detalhes da venda
+        const detalhesVenda = {
+            dataVenda: dataVenda,
+            itensVendidos: carrinho,
+            vendedor: vendedor,
+            formaPagamento: formaPagamento
+        };
+
+        // Verificar se já existem vendas no localStorage
+        let vendas = JSON.parse(localStorage.getItem('vendas')) || [];
+
+        // Adicionar os detalhes da venda à lista de vendas
+        vendas.push(detalhesVenda);
+
+        console.log(detalhesVenda);
+
+        // Salvar a lista de vendas atualizada no localStorage
+        localStorage.setItem('vendas', JSON.stringify(vendas));
+
+        // Limpar o carrinho após finalizar a compra
+        carrinho = [];
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        renderizarCarrinho();
+
+        // Exibir mensagem de compra finalizada
         alert('Compra finalizada! Obrigado por comprar conosco.');
-        carrinho = []; // Limpa o carrinho após finalizar a compra
-        localStorage.setItem('carrinho', JSON.stringify(carrinho)); // Atualiza o localStorage com o carrinho vazio
-        renderizarCarrinho(); // Renderiza novamente o carrinho
+
+        // Fechar a modal
+        modal.style.display = 'none';
     });
 });
