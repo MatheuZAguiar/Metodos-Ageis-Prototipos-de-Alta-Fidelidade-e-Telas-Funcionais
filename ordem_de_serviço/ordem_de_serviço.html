@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordem de Serviços</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section id="section-ordem-servicos">
+        <h1 id="h1_titulo">Ordem de Serviços</h1>
+
+        <!-- Formulário de Cadastro de Serviço -->
+        <div id="cadastro-servico">
+            <h2>Cadastrar Serviço</h2>
+            <form id="form-servico">
+                <label for="descricao-servico">Descrição do Serviço:</label>
+                <input type="text" id="descricao-servico" name="descricao-servico" required>
+
+                <label for="valor-servico">Valor:</label>
+                <input type="number" id="valor-servico" name="valor-servico" required>
+
+                <button type="submit">Cadastrar Serviço</button>
+            </form>
+        </div>
+
+        <!-- Lista de Serviços -->
+        <div id="lista-servicos">
+            <h2>Serviços Cadastrados</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-servicos">
+                    <!-- Os serviços serão inseridos aqui dinamicamente -->
+                </tbody>
+            </table>
+        </div>
+        <a href="../dashboard/dashboard.html" class="btn-voltar">Voltar à Dashboard</a>
+    </section>
+
+    <!-- Modal para Finalizar Serviço -->
+    <div id="modal-finalizar-servico" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Finalizar Serviço</h2>
+            <form id="form-finalizar-servico">
+                <label for="vendedor">Vendedor(a):</label>
+                <input type="text" id="vendedor" name="vendedor" required>
+
+                <label for="forma-pagamento">Forma de Pagamento:</label>
+                <select id="forma-pagamento" name="forma-pagamento" required>
+                    <option value="dinheiro">DINHEIRO</option>
+                    <option value="cartao">CARTÃO</option>
+                    <option value="pix">PIX</option>
+                </select>
+
+                <button type="submit">Confirmar Cobrança</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

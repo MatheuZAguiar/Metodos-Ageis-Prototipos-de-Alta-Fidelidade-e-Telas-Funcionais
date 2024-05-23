@@ -9,11 +9,15 @@ document.addEventListener('DOMContentLoaded', function() {
         corpoTabela.innerHTML = '';
 
         vendas.forEach(function(venda) {
+            // Verifica se 'itensVendidos' é um array válido
+            let itensVendidos = Array.isArray(venda.itensVendidos) ? venda.itensVendidos : [];
+
+            // Cria a linha da tabela
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td>${venda.dataVenda.toLocaleString()}</td>
-                <td>${venda.itensVendidos.length}</td>
-                <td>${venda.itensVendidos.map(item => item.descricao).join(', ')}</td>
+                <td>${new Date(venda.dataVenda).toLocaleString()}</td>
+                <td>${itensVendidos.length}</td>
+                <td>${itensVendidos.map(item => item.descricao || 'Sem descrição').join(', ')}</td>
                 <td>${venda.vendedor}</td>
                 <td>${venda.formaPagamento}</td>
             `;
